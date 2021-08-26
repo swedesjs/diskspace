@@ -1,0 +1,15 @@
+{
+  "name": "@types/diskspace",
+  "version": "2.0.0",
+  "license": "none",
+  "description": "TypeScript definitions for diskspace",
+  "contributors": [
+    {
+      "name": "Vladislav",
+      "url": "https://github.com/swedesjs",
+      "githubUsername": "xeningem"
+    }
+  ],
+  "main": "",
+  "typeScriptVersion": "3.31"
+}
