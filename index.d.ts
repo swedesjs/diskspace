@@ -11,48 +11,48 @@
 type Callback = (err: Error | null, result: Result) => void;
 
 type Result = {
-  /**
-   * RU: Это то, сколько диск имеет полностью.
-   *
-   * EN: Is how much the drive has totally.
-   */
-  total: string;
-  /**
-   * RU:
-   *
-   * Это указанная часть диска как используемая.
-   * На *nix это прямо из команды, в Windows это вычисляется из `df -kresult.total - result.free`
-   *
-   * EN:
-   *
-   * Is how much of the drive is reported as used.
-   * On *nix this is straight from the command, on Windows it's calculated from `df -kresult.total - result.free`
-   */
-  used: number;
-  /**
-   * RU: Это то, сколько свободного места у вас есть.
-   *
-   * EN: Is how much free space you have.
-   */
-  free: string;
-  /**
-   * RU:
-   *
-   * На самом деле не так полезен, если вы не хотите отлаживать.
-   * * NOTFOUND - Диск не найден, значения пространства будут 0
-   * * READY - Диск готов
-   * * NOTREADY - Диск не готов, значения пространства будут 0
-   * * STDERR - некоторая ошибка, вывод ее был записан на консоль.
-   *
-   * EN:
-   *
-   * Isn't really that useful unless you want to debug.
-   * * NOTFOUND - Disk was not found, the space values will be 0
-   * * READY - The drive is ready
-   * * NOTREADY - The drive isn't ready, the space values will be 0
-   * * STDERR - some error, the output of it was logged to the console.
-   */
-  status: "NOTFOUND" | "READY" | "NOTREADY" | "STDERR";
+    /**
+     * RU: Это то, сколько диск имеет полностью.
+     *
+     * EN: Is how much the drive has totally.
+     */
+    total: string;
+    /**
+     * RU:
+     *
+     * Это указанная часть диска как используемая.
+     * На *nix это прямо из команды, в Windows это вычисляется из `df -kresult.total - result.free`
+     *
+     * EN:
+     *
+     * Is how much of the drive is reported as used.
+     * On *nix this is straight from the command, on Windows it's calculated from `df -kresult.total - result.free`
+     */
+    used: number;
+    /**
+     * RU: Это то, сколько свободного места у вас есть.
+     *
+     * EN: Is how much free space you have.
+     */
+    free: string;
+    /**
+     * RU:
+     *
+     * На самом деле не так полезен, если вы не хотите отлаживать.
+     * * NOTFOUND - Диск не найден, значения пространства будут 0
+     * * READY - Диск готов
+     * * NOTREADY - Диск не готов, значения пространства будут 0
+     * * STDERR - некоторая ошибка, вывод ее был записан на консоль.
+     *
+     * EN:
+     *
+     * Isn't really that useful unless you want to debug.
+     * * NOTFOUND - Disk was not found, the space values will be 0
+     * * READY - The drive is ready
+     * * NOTREADY - The drive isn't ready, the space values will be 0
+     * * STDERR - some error, the output of it was logged to the console.
+     */
+    status: "NOTFOUND" | "READY" | "NOTREADY" | "STDERR";
 };
 
 /**
@@ -72,8 +72,10 @@ type Result = {
  */
 
 declare namespace diskspace {
-  function check<T extends "C" | "/">(drive: T, callback: Callback): void;
-  export { check };
+    function check<T extends "C" | "/">(drive: T, callback: Callback): void;
+    export { check };
 }
 
-export default diskspace;
+declare module "diskspace" {
+    export default diskspace;
+}
