@@ -72,8 +72,7 @@ type Result = {
  */
 
 declare namespace diskspace {
-    function check<T extends "C" | "/">(drive: T, callback: Callback): void;
-    export { check };
+    export function check<T extends "C" | "/">(drive: T, callback: Callback): void;
 }
 
 declare module "diskspace" {
